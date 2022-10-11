@@ -1,6 +1,6 @@
 # ProtoVAE
 
-The official implementation of "ProtoVAE: A Trustworthy Self-Explainable Prototypical Variational Model" (to appear at NeurIPS 2022) by Srishti Gautam,  Ahcene Boubekki, Stine Hansen, Suaiba Amina Salahuddin, Robert Jenssen, Marina MC Höhne, Michael Kampffmeyer.
+The official PyTorch implementation of "ProtoVAE: A Trustworthy Self-Explainable Prototypical Variational Model" (to appear at NeurIPS 2022) by Srishti Gautam,  Ahcene Boubekki, Stine Hansen, Suaiba Amina Salahuddin, Robert Jenssen, Marina MC Höhne, Michael Kampffmeyer.
 
 The code is built upon ProtoPNet's official implementation (https://github.com/cfchen-duke/ProtoPNet) and LRP implementation from https://github.com/AlexBinder/LRP_Pytorch_Resnets_Densenet.
 
