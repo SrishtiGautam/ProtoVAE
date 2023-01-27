@@ -342,9 +342,10 @@ class ProtoVAE(nn.Module):
             p_v = self.prototype_vectors[nearest_pt[:,i],:]
             q = torch.distributions.Normal(p_v, torch.ones(p_v.shape).to(device))
             kl = torch.mean(torch.distributions.kl.kl_divergence(p, q), dim=1)
-            kl_loss[:,i] = kl
+            kl_loss[np.arange(sim_scores.shape[0]),nearest_pt[:,i]] = kl
         kl_loss = kl_loss*sim_scores
-        kl_loss = torch.sum(kl_loss,dim=1)/(torch.sum(sim_scores,dim=1))
+        mask = kl_loss > 0
+        kl_loss = torch.sum(kl_loss, dim=1) / (torch.sum(sim_scores * mask, dim=1))
         kl_loss = torch.mean(kl_loss)
         return kl_loss
 
