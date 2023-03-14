@@ -30,7 +30,6 @@ if (data_name == "mnist"):
     num_prototypes = 50
     num_classes = 10
     batch_size = 128
-    joint_lr_step_size = 10
     lr = 1e-3
     num_train_epochs = 10
 
