@@ -152,7 +152,7 @@ if(mode=="train"):
         if(jet!=True):
             plt.imsave(os.path.join(prototype_dir, 'prototype' + str(j) + '.png'), p_img_j, vmin=0.0, vmax=1.0)
         else:
-            plt.imsave(os.path.join(prototype_dir, 'prototype' + str(j) + '.png'), p_img_j, jet="True",vmin=0.0, vmax=1.0)
+            plt.imsave(os.path.join(prototype_dir, 'prototype' + str(j) + '.png'), p_img_j, cmap="jet",vmin=0.0, vmax=1.0)
 
         plt.subplot(num_classes, num_p_per_class, j + 1)
         plt.subplots_adjust(left=0, right=1, top=1, bottom=0)

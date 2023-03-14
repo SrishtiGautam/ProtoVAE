@@ -321,10 +321,10 @@ class ProtoVAE(nn.Module):
         s_loss = 0
         for k in range(self.num_classes):
             p_k = self.prototype_vectors[k*self.num_prototypes_per_class:(k+1)*self.num_prototypes_per_class,:]
-            p_k_mean = torch.mean(p_k, dim=0)
-            p_k_2 = p_k - p_k_mean
-            p_k_dot = p_k_2.T @ p_k_2
-            s_matrix = p_k_dot - (torch.eye(p_k.shape[1]).to(device))
+            p_k_mean = torch.mean(p_k, dim=1)
+            p_k_2 = p_k - p_k_mean.unsqueeze(1)
+            p_k_dot = p_k_2 @ p_k_2.T
+            s_matrix = p_k_dot - (torch.eye(p_k.shape[0]).to(device))
             s_loss+= torch.norm(s_matrix,p=2)
         return s_loss/self.num_classes
 
